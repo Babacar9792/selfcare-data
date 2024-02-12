@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        DepartementSeeder::class;
         // \App\Models\User::factory(10)->create();
         // Departement::factory(10)->create();
 
@@ -66,5 +68,6 @@ class DatabaseSeeder extends Seeder
                 $departements[0]->assignRole("Support fonctionnel");
             }
         }
+
     }
 }

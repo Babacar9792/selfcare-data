@@ -1,11 +1,17 @@
 <?php
 
+
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\PermissionController;
 use App\Http\Controllers\Auth\RoleController;
 // use App\Http\Controllers\PermissionController;
+
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UtilisateurController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepartementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +39,15 @@ Route::middleware("auth:api")->group(function() {
     Route::apiResource("permission",  PermissionController::class);
     Route::post('departement/{id}/interim', [RoleController::class, 'interim'])->name("departement.interim");
 });
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
+
+//user
+Route::apiResource('user', UtilisateurController::class);
+
+
+//Departement
+Route::apiResource('departement',DepartementController::class);

@@ -14,9 +14,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nom');
+            $table->string('prenom');
             $table->string('email')->unique();
-            $table->foreignIdFor(Departement::class)->constrained();
+            $table->foreignIdFor(Departement::class)->constrained()->cascadeOnDelete();
+            $table->string('login_windows')->unique();
+            $table->boolean('blocked')->default(false);
+            $table->integer('tentative')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string("login_window")->unique();
@@ -24,6 +28,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->integer("tentative")->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
