@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\DebloquerRequest;
 use App\Models\User;
-use App\Trait\ResponseTrait;
+use App\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +30,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
-        $field = filter_var($request->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'login_window';
+        $field = filter_var($request->input('username'), FILTER_VALIDATE_EMAIL) ? 'email' : 'login_windows';
         $credentials = [
             $field => $request->input('username'),
             'password' => $request->input('password')

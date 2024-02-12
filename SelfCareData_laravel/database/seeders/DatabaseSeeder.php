@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        DepartementSeeder::class;
+        // DepartementSeeder::class;
         // \App\Models\User::factory(10)->create();
-        // Departement::factory(10)->create();
+        Departement::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Babacar sy',
@@ -39,35 +39,36 @@ class DatabaseSeeder extends Seeder
 
         // Role::insert([
         //     [
-        //         "name" => "Admin",
+        //         "name" => "Admine",
         //         "guard_name" => "api"
         //     ],
         //     [
-        //         "name" => "Support fonctionnel",
+        //         "name" => "Support fonctionnele",
         //         "guard_name" => "api"
         //     ],
         //     [
-        //         "name" => "Collaborateur",
+        //         "name" => "Collaborateurs",
         //         "guard_name" => "api"
         //     ],
         // ]);
 
-        for ($i = 1; $i <= 10; $i++) {
-            $departements = User::where('departement_id', $i)->get();
-            if (count($departements) == 0) {
-                $user  = User::create([
-                    'name' => 'Babs sy '.$i,
-                    'email' => 'babacar'.$i.'@gmail.com',
-                    'password' => "123",
-                    'login_window' => 'stg_'.$i,
-                    "departement_id" => $i
-                ]);
-                $user->assignRole("Support fonctionnel");
-            }
-            else{
-                $departements[0]->assignRole("Support fonctionnel");
-            }
-        }
+        // for ($i = 1; $i <= 10; $i++) {
+        //     $departements = User::where('departement_id', $i)->get();
+        //     if (count($departements) == 0) {
+        //         $user  = User::create([
+        //             'prenom' => 'Babs '.$i,
+        //             'nom' => "sy",
+        //             'email' => 'babacar'.$i.'@gmail.com',
+        //             'password' => "123",
+        //             'login_windows' => 'stg_'.$i,
+        //             "departement_id" => $i
+        //         ]);
+        //         $user->assignRole("Support fonctionnel");
+        //     }
+        //     else{
+        //         $departements[0]->assignRole("Support fonctionnel");
+        //     }
+        // }
 
     }
 }

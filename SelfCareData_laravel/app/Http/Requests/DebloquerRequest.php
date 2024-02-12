@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\BlockedUser;
-use App\Trait\ResponseTrait;
+use App\Traits\ResponseTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;

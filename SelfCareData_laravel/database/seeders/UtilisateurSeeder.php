@@ -36,7 +36,7 @@ class UtilisateurSeeder extends Seeder
                     'email' => $data[2],
                     'login_windows' => $data[3],
                     'departement_id' => $data[4],
-                    'password' => bcrypt('password123'), // Assurez-vous que le mot de passe soit crypté avant l'insertion
+                    'password' => bcrypt('password'), // Assurez-vous que le mot de passe soit crypté avant l'insertion
                 ]);
             }
             fclose($handle);

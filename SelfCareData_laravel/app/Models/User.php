@@ -33,7 +33,7 @@ class User extends Authenticatable
         'login_windows',
         'tentative',
         'blocked',
-       'departement_id',
+        'departement_id',
     ];
 
     /**
@@ -64,7 +64,7 @@ class User extends Authenticatable
             echo $this->blocked;
             $this->update(['blocked' => true]);
             $this->save();
-             // Vous pouvez implémenter une méthode pour bloquer l'utilisateur
+            // Vous pouvez implémenter une méthode pour bloquer l'utilisateur
         }
     }
 
@@ -79,12 +79,13 @@ class User extends Authenticatable
     {
         $this->update(['blocked' => $isBlocked]);
     }
-   public function setPasswordAttribute($value)
+    public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function departement(): BelongsTo{
-
+    public function departement(): BelongsTo
+    {
+        return $this->belongsTo(Departement::class);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Requests\Role;
 
 use App\Rules\IsSupportFonctionnel;
 use App\Rules\UserInDepartement;
-use App\Trait\ResponseTrait;
+use App\Traits\ResponseTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
