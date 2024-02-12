@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Auth;
 
-use App\Trait\ResponseTrait;
+use App\Traits\ResponseTrait;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;

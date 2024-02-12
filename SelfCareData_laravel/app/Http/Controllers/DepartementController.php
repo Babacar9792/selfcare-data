@@ -18,9 +18,16 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        return DB::transaction(function () {
+        $withUser = request()->input("user", 1);
+        return DB::transaction(function () use($withUser) {
             try {
-                $departement = Departement::all();
+                if($withUser == 1){
+                    $departement = Departement::all()->load('users');
+                }
+                else{
+
+                    $departement = Departement::all();
+                }
                 return $this->responseData('Tous les departements', true, Response::HTTP_OK, DepartementResource::collection($departement));
             } catch (\Throwable $th) {
                 return $this->responseData($th->getMessage(), false, Response::HTTP_INTERNAL_SERVER_ERROR, null);
@@ -81,12 +88,16 @@ class DepartementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Departement $departement)
+    public function destroy(Request $request)
     {
-        return DB::transaction(function () use ($departement) {
+        return DB::transaction(function () use ($request) {
             try {
-                $departement->delete();
-                return $this->responseData('Suppression effectuée', true, Response::HTTP_OK, DepartementResource::make($departement));
+                $depart = Departement::find($request->departement);
+                if($depart){
+                    $depart->delete();
+                    return $this->responseData('Suppression effectuée', true, Response::HTTP_OK, DepartementResource::make($depart));
+                }
+                return $this->responseData("Le departement n'existe pas ", false, Response::HTTP_INTERNAL_SERVER_ERROR, null);
             } catch (\Throwable $th) {
                 return $this->responseData($th->getMessage(), false, Response::HTTP_INTERNAL_SERVER_ERROR, null);
             }

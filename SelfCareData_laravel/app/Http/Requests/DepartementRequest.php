@@ -29,7 +29,6 @@ class DepartementRequest extends FormRequest
     {
         return [
             'libelle' => 'required|string|max:20|unique:departements',
-            'name' => "required"
         ];
     }
 
@@ -46,7 +45,7 @@ class DepartementRequest extends FormRequest
     public function messages(){
         return [
             "libelle.required"=> "Le libelle est requis",
-            "libelle.max"=> "Le libelle ne doit pas contenir plus de  20 caractere",
+            "libelle.max"=> "Le libelle ne doit pas contenir plus de 20 caracteres",
             "libelle.unique" => "Le libelle existe déja"
         ];
     }

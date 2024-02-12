@@ -8,7 +8,7 @@ use App\Http\Requests\Role\InterimRequest;
 use App\Http\Requests\Role\StoreRoleRequest;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
-use App\Trait\ResponseTrait;
+use App\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
