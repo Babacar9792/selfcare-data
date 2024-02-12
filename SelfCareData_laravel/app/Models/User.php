@@ -4,15 +4,20 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
-use Laravel\Sanctum\HasApiTokens;
+// use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
+
 
     /**
      * The attributes that are mass assignable.
@@ -26,8 +31,9 @@ class User extends Authenticatable
         'email',
         'password',
         'login_windows',
-        'departement_id',
-        'tentative'
+        'tentative',
+        'blocked',
+       'departement_id',
     ];
 
     /**
@@ -50,13 +56,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($value)
+    public function incrementTentatives()
+    {
+        $this->tentative++;
+        $this->save();
+        if ($this->tentative >= 5) {
+            echo $this->blocked;
+            $this->update(['blocked' => true]);
+            $this->save();
+             // Vous pouvez implémenter une méthode pour bloquer l'utilisateur
+        }
+    }
+
+    public function resetTentatives()
+    {
+        $this->tentative = 0;
+        $this->update(['blocked' => false]);
+        $this->save();
+    }
+
+    public function blockUser($isBlocked)
+    {
+        $this->update(['blocked' => $isBlocked]);
+    }
+   public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
     }
 
+    public function departement(): BelongsTo{
 
-    public function departement(){
-        return $this->belongsTo(Departement::class);
     }
 }

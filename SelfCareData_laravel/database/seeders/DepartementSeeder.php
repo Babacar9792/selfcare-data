@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use App\Models\Departement;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -13,6 +14,7 @@ class DepartementSeeder extends Seeder
      */
     public function run(): void
     {
+
         // Departement::create(['libelle' => 'Informatique']);
         // Departement::create(['libelle' => 'Ressources humaines']);
         // Departement::create(['libelle' => 'Finance']);

@@ -1,0 +1,28 @@
+<div class="container-login-page">
+    <div class="login-page">
+        <div class="container-form">
+            <img src="../../../../assets/logo.png" alt="">
+
+            <form [formGroup]="formAuthenticate" (ngSubmit)="login()">
+                <h1>Connexion</h1>
+                <div class="input-label">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="Email ou login window" formControlName="username">
+                </div>
+                <div class="input-label">
+                    <label for="">Mot de passe</label>
+                    <input type="password" placeholder="Reseigner votre mot de passe" formControlName="password">
+                </div>
+                <div class="container-button">
+                    <button type="submit" class="button outline" [disabled]="formAuthenticate.invalid"
+                        [ngClass]="{'bg-col': formAuthenticate.invalid }">
+                        Connexion
+                        <div class="loader"></div>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="container-image"></div>
+
+    </div>
+</div>
