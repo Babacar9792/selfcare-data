@@ -4,16 +4,11 @@ import { environment } from 'src/environments/environment.development';
 import { Login } from '../interfaces/login';
 import { ResponseData } from '../interfaces/response-data';
 import { Observable } from 'rxjs';
-// import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends ParentService {
-
-  // constructor(private httpClient: HttpClient) {
-  //   super(httpClient); // Appel du constructeur de la classe parentService si nécessaire
-  // }
 
   uriLogin: string = "login";
   uriLogout : string =  "logout";
