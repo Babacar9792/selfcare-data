@@ -9,10 +9,11 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DepartementRequest;
 use App\Http\Resources\DepartementResource;
+use App\Traits\SlugTrait;
 
 class DepartementController extends Controller
 {
-    use ResponseTrait;
+    use ResponseTrait, SlugTrait;
     /**
      * Display a listing of the resource.
      */
@@ -59,9 +60,15 @@ class DepartementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Departement $departement)
+    public function show(Request $request)
     {
-        //
+        try {
+            return $this->responseData("", true, Response::HTTP_ACCEPTED, $this->decodeSlug($request->departement));
+        } catch (\Throwable $th) {
+            return $this->responseData("La resource inexistante", false, Response::HTTP_BAD_REQUEST);
+        }
+        
+        return ;
     }
 
     /**

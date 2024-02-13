@@ -18,7 +18,7 @@ class UserInDepartement implements ValidationRule
         $departement_id = request()->input("departement_id");
         $user = User::where("id", $value)->first();
         if($user && $user->departement_id != $departement_id){
-            $fail("L'utilisateur : ".$user->name." n'est pas present dans le departement selectionne");
+            $fail("L'utilisateur : ".$user->prenom." ".$user->nom." n'est pas présent dans le departement selectionne");
         }
     }
 }

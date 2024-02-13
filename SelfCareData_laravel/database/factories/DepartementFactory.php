@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Departement>
@@ -16,8 +18,10 @@ class DepartementFactory extends Factory
      */
     public function definition(): array
     {
+        $libelle = fake()->unique()->streetName();
         return [
-            "libelle" => fake()->streetName()
+            "libelle" => $libelle,
+            "slug" => Str::slug($libelle)
             //
         ];
     }
