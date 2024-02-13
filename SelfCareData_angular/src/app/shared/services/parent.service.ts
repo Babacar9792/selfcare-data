@@ -31,14 +31,14 @@ export class ParentService {
     );
   }
 
-  putData<E, R>(uri: string, data: R): Observable<R> {
+  putData<E, R>(uri: string, data: E): Observable<R> {
     return this.http.put<R>(this.url + uri, data).pipe(
       tap(value => console.log(value)
       )
     );
   }
 
-  deleteData<E, R>(uri : string, data : R) : Observable<R>{
+  deleteData<E, R>(uri : string, data : E) : Observable<R>{
     return this.http.delete<R>(this.url+uri, {
       body : data
     });

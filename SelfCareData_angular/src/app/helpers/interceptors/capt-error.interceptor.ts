@@ -6,17 +6,25 @@ import {
   HttpInterceptor,
   HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 @Injectable()
 export class CaptErrorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor() { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        throw(error.error);
+        let err = error.error;
+        if (!err.message) {
+          err = {
+            message: error.message,
+            status: false,
+            data: []
+          }
+        }
+        throw (err);
       })
     );
   }

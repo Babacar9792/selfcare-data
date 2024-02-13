@@ -1,0 +1,34 @@
+.container-dashabord{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: red;
+}
+
+.side-bar{
+    width: 15%;
+    border: 0.1em solid;
+    height: 100%;
+}
+
+.menu{
+    width: 85%;
+    height: 100%;
+    border: 0.1em solid;
+    // background-color: green;
+}
+
+.topbar{
+    width: 100%;
+    height: 8%;
+    border: 0.1em solid;
+    // background-color: blue;
+}
+
+.menu-app{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}

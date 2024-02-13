@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { UserLogin } from '../../interfaces/user-login';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-login',
@@ -27,10 +29,16 @@ export class LoginComponent {
   }
 
   login(){
-    this.authService.login(this.formAuthenticate.value).subscribe({
+    this.authService.login<UserLogin>(this.formAuthenticate.value).subscribe({
       next : (value) => {
-        console.log(value);
-        
+        if(value.status){
+          localStorage.setItem(environment.appName+"_token", value.data.token);
+          localStorage.setItem(environment.appName+'_user', JSON.stringify(value.data.user));
+          
+        }
+        else{
+          alert(value.message);
+        }
       },
       error : (err) =>{
         alert(err.message);
