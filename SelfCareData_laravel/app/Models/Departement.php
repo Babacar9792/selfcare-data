@@ -13,6 +13,11 @@ class Departement extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['libelle'];
+    protected $hidden = [
+        "deleted_at",
+        "created_at",
+        "updated_at"
+    ];
 
     public function users(): HasMany
     {

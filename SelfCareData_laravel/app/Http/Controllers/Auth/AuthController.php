@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\DebloquerRequest;
+use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use App\Traits\ResponseTrait;
 use Illuminate\Http\Request;
@@ -58,7 +59,7 @@ class AuthController extends Controller
 
         // Authentification réussie
         $token = Auth::user()->createToken('token')->accessToken;
-        return $this->responseData("Authentification réussie", true, Response::HTTP_ACCEPTED, ["user" => Auth::user(), "token" => $token]);
+        return $this->responseData("Authentification réussie", true, Response::HTTP_ACCEPTED, ["user" => UserResource::make(Auth::user()), "token" => $token]);
     }
 
 

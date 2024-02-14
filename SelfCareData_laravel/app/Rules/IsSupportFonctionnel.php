@@ -17,7 +17,7 @@ class IsSupportFonctionnel implements ValidationRule
     {
         $user = User::where("id", $value)->first();
         if($user && !$user->hasRole("Support fonctionnel")){
-            $fail("L'utilisateur : ".$user->name." n'a pas le role de support fonctionnel dans le département ".$user->departement["name"]);
+            $fail("L'utilisateur : ".$user->prenom." ".$user->nom." n'a pas le rôle de support fonctionnel dans le département ".$user->departement["name"]);
         }
     }
 }

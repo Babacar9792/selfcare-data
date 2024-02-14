@@ -33,14 +33,7 @@ class DebloquerRequest extends FormRequest
         ];
     }
 
-    // public function failedValidation(Validator $validator)
-    // {
-
-    //     throw new HttpResponseException(
-    //         $this->responseData($validator->errors(), false, Response::HTTP_BAD_REQUEST, [])
-    //     );
-    // }
-
+    
     protected function failedValidation(Validator $validator)
     {
         $errors = $validator->errors()->all();

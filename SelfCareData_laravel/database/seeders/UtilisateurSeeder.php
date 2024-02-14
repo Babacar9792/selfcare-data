@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UtilisateurSeeder extends Seeder
 {
@@ -36,7 +37,8 @@ class UtilisateurSeeder extends Seeder
                     'email' => $data[2],
                     'login_windows' => $data[3],
                     'departement_id' => $data[4],
-                    'password' => bcrypt('password'), // Assurez-vous que le mot de passe soit crypté avant l'insertion
+                    'password' => bcrypt('password'),
+                    'slug' => Str::slug($data[2]) // Assurez-vous que le mot de passe soit crypté avant l'insertion
                 ]);
             }
             fclose($handle);
