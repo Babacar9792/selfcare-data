@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-topbar',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./topbar.component.scss']
 })
 export class TopbarComponent {
+ @Input() isSidebarVisible: boolean = true
+ profilLink:boolean = false;
+  @Output() toggleSidebar = new EventEmitter<void>();
 
+  onToggleSidebar() {
+    this.toggleSidebar.emit();
+  }
+  openProfilLink(){
+    this.profilLink = !this.profilLink;
+  }
 }
