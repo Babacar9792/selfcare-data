@@ -28,7 +28,6 @@ class DepartementController extends Controller
                     $departement = Departement::all()->load('users');
                 }
                 else{
-
                     $departement = Departement::all();
                 }
                 return $this->responseData('Tous les departements', true, Response::HTTP_OK, DepartementResource::collection($departement));
@@ -51,7 +50,6 @@ class DepartementController extends Controller
                 $departement = Departement::create([
                     "libelle" => $libelleFormate,
                     "slug" => Str::slug($libelleFormate)
-                    
                 ]);
                 return $this->responseData('Ajout Departement effectue',true,Response::HTTP_OK,DepartementResource::make($departement));
             } catch (\Throwable $th) {
@@ -68,8 +66,9 @@ class DepartementController extends Controller
     {
         try {
             return $this->responseData("", true, Response::HTTP_ACCEPTED,
-                             DepartementResource::make(Departement::where("id", $this->decodeSlug($request->departement)["id"])->first())
-                            );
+            
+                        DepartementResource::make(Departement::where("id", $this->decodeSlug($request->departement)["id"])->first())
+                );
         } catch (\Throwable $th) {
             return $this->responseData("La resource inexistante", false, Response::HTTP_BAD_REQUEST);
         }
