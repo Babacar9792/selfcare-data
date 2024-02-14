@@ -74,7 +74,7 @@ class DepartementController extends Controller
             return $this->responseData("La resource inexistante", false, Response::HTTP_BAD_REQUEST);
         }
         
-        return ;
+      
     }
 
     /**
