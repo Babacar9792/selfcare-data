@@ -1,7 +1,7 @@
 .container-dashabord {
-  width: 100%;
-  height: 100%;
   display: flex;
+  width: 100vw;
+  justify-content: center;
   flex-direction: column;
 }
 
@@ -16,7 +16,6 @@
 
 .menu {
   /* ajuster la largeur en fonction de la sidebar */
-  min-width: calc(100% - 260px); /* pour s'assurer qu'il ne devient pas plus petit */
   height: 100%;
   margin-left: 200px;
   display: flex;
@@ -34,8 +33,6 @@
 }
 
 .menu-app {
-  width: 100%;
-  min-height:80vh;
   margin-top:7rem;
 
 }
