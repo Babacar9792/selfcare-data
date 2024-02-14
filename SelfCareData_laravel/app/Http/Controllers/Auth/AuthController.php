@@ -58,7 +58,7 @@ class AuthController extends Controller
         }
 
         // Authentification réussie
-        $token = Auth::user()->createToken('token')->accessToken;
+        $token = Auth::user()->createToken('token');
         return $this->responseData("Authentification réussie", true, Response::HTTP_ACCEPTED, ["user" => UserResource::make(Auth::user()), "token" => $token]);
     }
 

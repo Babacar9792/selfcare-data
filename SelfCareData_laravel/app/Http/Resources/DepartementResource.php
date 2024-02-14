@@ -16,7 +16,6 @@ class DepartementResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        // return parent::toArray($request);
         return [
              "id" =>  $this->encodeSlug($this->id, $this->slug),
             "libelle" => $this->libelle,
