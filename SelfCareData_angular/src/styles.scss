@@ -1,10 +1,110 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+	--grey: #F1F0F6;
+	--dark-grey: #8D8D8D;
+	--light: #fff;
+	--dark: #000;
+	--green: #81D43A;
+	--light-green: #E3FFCB;
+	--blue: #ff7900;
+	--light-blue: #D0E4FF;
+	--dark-blue: #cd400c;
+	--red: #FC3B56;
+}
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+	  font-family: 'Open Sans', sans-serif;
 }
 body{
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    background: var(--grey);
+    overflow-x: hidden;
+}
+
+
+html {
+  font-size: 80%;
+	overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: .7rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: white;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--blue); /* Changez la couleur de la barre de défilement en bleu */
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+#sidebar.hide {
+  max-width: 60px;
+}
+
+#sidebar.hide:hover {
+  max-width: 260px;
+}
+
+#sidebar.hide:hover .divider {
+  text-align: left;
+}
+
+#sidebar.hide .divider {
+  text-align: center;
+}
+
+#sidebar .side-dropdown {
+  padding-left: 54px;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: all .15s ease;
+}
+
+#content.hide {
+  width: calc(100% - 60px);
+  left: 60px;
+}
+
+
+/* styles.css ou styles.scss */
+
+
+// .hide {
+//   display: none;
+// }
+
+
+
+
+
+@media screen and (max-width: 768px) {
+	#content {
+		position: relative;
+		width: calc(100% - 60px);
+		transition: all .3s ease;
+	}
+	nav .nav-link,
+	nav .divider {
+		display: none;
+	}
 }

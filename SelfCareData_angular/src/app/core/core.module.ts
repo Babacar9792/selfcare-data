@@ -11,7 +11,8 @@ import { TopbarComponent } from './components/dashbord/topbar/topbar.component';
   declarations: [
     DashbordComponent,
     SidebarComponent,
-    TopbarComponent
+    TopbarComponent,
+
   ],
   imports: [
     CommonModule,

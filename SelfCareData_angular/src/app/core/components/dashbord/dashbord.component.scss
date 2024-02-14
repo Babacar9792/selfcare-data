@@ -1,34 +1,59 @@
-.container-dashabord{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // background-color: red;
+.container-dashabord {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.side-bar{
-    width: 15%;
-    border: 0.1em solid;
-    height: 100%;
+.side-bar {
+  width: 200px;
+  min-width: 200px;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
-.menu{
-    width: 85%;
-    height: 100%;
-    border: 0.1em solid;
-    // background-color: green;
+.menu {
+  /* ajuster la largeur en fonction de la sidebar */
+  min-width: calc(100% - 260px); /* pour s'assurer qu'il ne devient pas plus petit */
+  height: 100%;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: column;
+  transition: all .3s ease;
 }
 
-.topbar{
-    width: 100%;
-    height: 8%;
-    border: 0.1em solid;
-    // background-color: blue;
+.topbar {
+  width: calc(100% - 200px);
+  height: 8%;
+  position: fixed;
+  top: 0;
+  left: 200px; /* laisser de la place pour la sidebar */
+  transition: all .3s ease;
 }
 
-.menu-app{
-    width: 100%;
-    height: 100%;
-    overflow: auto;
+.menu-app {
+  width: 100%;
+  min-height:80vh;
+  margin-top:7rem;
+
+}
+
+.topbar.hide {
+  left: 60px;
+  width: calc(100% - 60px);
+}
+
+.menu.hide{
+  width: calc(100% - 60px);
+  margin-left: 60px;
+}
+
+
+
+main .title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
