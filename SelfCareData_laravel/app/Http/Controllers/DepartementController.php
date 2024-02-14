@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DepartementRequest;
 use App\Http\Resources\DepartementResource;
 use App\Traits\SlugTrait;
+use Illuminate\Support\Str;
+
 
 class DepartementController extends Controller
 {
@@ -47,7 +49,9 @@ class DepartementController extends Controller
                 $libelle = $request->libelle;
                 $libelleFormate = ucwords(strtolower($libelle));
                 $departement = Departement::create([
-                    "libelle" => $libelleFormate
+                    "libelle" => $libelleFormate,
+                    "slug" => Str::slug($libelleFormate)
+                    
                 ]);
                 return $this->responseData('Ajout Departement effectue',true,Response::HTTP_OK,DepartementResource::make($departement));
             } catch (\Throwable $th) {
@@ -63,12 +67,14 @@ class DepartementController extends Controller
     public function show(Request $request)
     {
         try {
-            return $this->responseData("", true, Response::HTTP_ACCEPTED, $this->decodeSlug($request->departement));
+            return $this->responseData("", true, Response::HTTP_ACCEPTED,
+                             DepartementResource::make(Departement::where("id", $this->decodeSlug($request->departement)["id"])->first())
+                            );
         } catch (\Throwable $th) {
             return $this->responseData("La resource inexistante", false, Response::HTTP_BAD_REQUEST);
         }
         
-        return ;
+      
     }
 
     /**
@@ -81,6 +87,7 @@ class DepartementController extends Controller
                 if ($departement) {
                     $libelleFormate = ucwords(strtolower($request->libelle));
                     $departement->libelle = $libelleFormate;
+                    $departement->slug = Str::slug($libelleFormate);
                     $departement->save();
                     return $this->responseData('Modification effectue', true, Response::HTTP_OK, DepartementResource::make($departement));
                 }

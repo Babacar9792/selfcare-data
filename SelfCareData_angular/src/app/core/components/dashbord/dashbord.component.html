@@ -1,16 +1,19 @@
+
 <div class="container-dashabord">
 
     <div class="side-bar">
-        <app-sidebar></app-sidebar>
-
+        <app-sidebar [isSidebarVisible]="isSidebarVisible"></app-sidebar>
     </div>
-    <div class="menu">
-        <div class="topbar">
-            <app-topbar></app-topbar>
+    <div class="menu" [ngClass]="{'hide': !isSidebarVisible}">
+        <div class="topbar" [ngClass]="{'hide': !isSidebarVisible}">
+          <app-topbar (toggleSidebar)="toggleSidebar()" [isSidebarVisible]="isSidebarVisible"></app-topbar>
         </div>
         <div class="menu-app">
             <router-outlet></router-outlet>
         </div>
-    </div>
+    </div>
 
 </div>
+
+
+
