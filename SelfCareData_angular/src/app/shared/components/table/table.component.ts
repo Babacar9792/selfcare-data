@@ -18,14 +18,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "fcygv",
-      test10 : "111111"
+
 
     },
     {
@@ -37,14 +30,8 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+
+
 
     },
     {
@@ -56,14 +43,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+
 
     },
 
@@ -76,14 +56,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+    
 
 
     },
@@ -96,14 +69,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+    
 
     },
     {
@@ -115,14 +81,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+    
 
     },
     {
@@ -134,14 +93,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+    
 
     },
     {
@@ -153,14 +105,7 @@ export class TableComponent {
       numero: "kljhgfhjklmjhgfdhj",
       adresse: "fghjklmjfdgjklmjfdg",
       test1: 3,
-      test2: "tfghb jdsqhbkhljkmlshvfkvbsdjbjpkbhjgksdjsfbk",
-      test3 : "qdsjhgkljm",
-      test4 : 'sdfguhijoklm',
-      test6 : "fcygvuhbijnk,l;",
-      test7 : "stxycguvhibjnk",
-      test8 : "tfcygvuhbijokpl",
-      test9 : "",
-      test10 : "111111"
+    
 
     }
 

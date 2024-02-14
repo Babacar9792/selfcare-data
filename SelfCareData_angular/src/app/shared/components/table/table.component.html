@@ -1,5 +1,5 @@
 <!-- component -->
-<div class="p-8 rounded-md w-full">
+<div class="p-8 rounded-md ">
 	<div class=" flex items-center justify-between pb-6">
 		<div>
 			<h2 class="text-gray-600 font-semibold">{{titre }}</h2>
@@ -12,9 +12,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="">
-			<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4">
-        <div class="w-[80rem] table-container overflow-x-auto">
+		<div class="w-full ">
+			<div class="-mx-4 sm:-mx-8 sm:px-8 py-4">
+        <div class="w-full table-container overflow-x-auto">
           <div *ngIf="data.length" class=" inline-block min-w-full shadow rounded-lg overflow-hidden">
             <table class="min-w-full leading-normal">
               <thead>
@@ -65,7 +65,7 @@
               </tbody>
             </table>
             <div
-              class="">
+              class=" flex justify-end">
               <app-pagination></app-pagination>
             </div>
           </div>
