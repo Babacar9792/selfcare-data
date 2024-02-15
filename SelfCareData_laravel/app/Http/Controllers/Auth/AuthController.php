@@ -21,7 +21,7 @@ class AuthController extends Controller
 
 
     /**
-     * Méthode pour l'authentification 
+     * Méthode pour l'authentification
      * @param $request : username and password
      * Le username peut etre l'email ou le login_window
      * Dans le model user, nous avons deux foocntions : une pour incrémenter la valeur de l'attribut tentative de l'utilisateur et le bloqué s'il y trop de tentatives, une autre pour reinitialiser la valeur et débloquer L'utilisateur
@@ -47,6 +47,7 @@ class AuthController extends Controller
             }
 
             // Échec de la connexion
+            activity()->log('tenté de se connecter mais cele à echouer');
             return $this->responseData("Email ou mot de passe incorrect.", false, Response::HTTP_UNAUTHORIZED);
         }
 
@@ -54,11 +55,13 @@ class AuthController extends Controller
         // Vérifier si l'utilisateur est bloqué
 
         if (Auth::user()->blocked == true) {
+            activity()->log("le compte est bloqué");
             return $this->responseData("Votre compte a été bloqué. Veuillez contacter un administrateur.", false, Response::HTTP_UNAUTHORIZED);
         }
 
         // Authentification réussie
         $token = Auth::user()->createToken('token');
+        activity()->log("l'utilisateur s'est connecté");
         return $this->responseData("Authentification réussie", true, Response::HTTP_ACCEPTED, ["user" => UserResource::make(Auth::user()), "token" => $token]);
     }
 
@@ -67,6 +70,7 @@ class AuthController extends Controller
     {
         try {
             Auth::user()->token()->revoke();
+            activity()->log("l'utilisateur s'est deconnceté");
             return $this->responseData("Deconnexion réussie", true, Response::HTTP_ACCEPTED);
         } catch (\Throwable $th) {
             return $this->responseData($th->getMessage(), false, Response::HTTP_BAD_REQUEST);
@@ -78,6 +82,7 @@ class AuthController extends Controller
         try {
             $user = User::where("id", $request->user)->first();
             $user->resetTentatives();
+            activity()->log("l'utilisateur a éte débloqué");
             return $this->responseData("L'utilisateur a bien été débloqué", true, Response::HTTP_ACCEPTED);
         } catch (\Throwable $th) {
             return $this->responseData($th->getMessage(), false, Response::HTTP_BAD_REQUEST);

@@ -51,6 +51,7 @@ class UtilisateurController extends Controller
         if ($existingUser) {
             // Restaurer l'utilisateur existant
             $existingUser->restore();
+            activity()->log("l'utilisateur a été restauré");
             return $this->responseData('Utilisateur restauré avec succès', true, Response::HTTP_ACCEPTED, new UserResource($existingUser));
         }
 
@@ -65,6 +66,7 @@ class UtilisateurController extends Controller
             'password' => $request->password,
         ]);
         $user->assignRole("Collaborateur");
+        activity()->log("Utilisateur créé avec succès");
         return $this->responseData('Utilisateur créé avec succès', true, Response::HTTP_ACCEPTED, new UserResource($user));
     }
 
@@ -104,6 +106,7 @@ class UtilisateurController extends Controller
             'email' => $request->filled('email') ? $request->email : $user->email,
             'login_windows' => $request->filled('login_windows') ? $request->login_windows : $user->login_windows,
         ]);
+        activity()->log("Utilisateur a été mis à jour avec succès");
         return $this->responseData("Utilisateur mis à jour avec succès", true, Response::HTTP_ACCEPTED, $user);
     }
 
@@ -116,9 +119,11 @@ class UtilisateurController extends Controller
     public function destroy(User $user)
     {
         if (!$user) {
+            activity()->log("Il a tenté de supprimer un utilisateur mais il est non existant ");
             return $this->responseData('Utilisateur non trouvé', true, Response::HTTP_BAD_REQUEST);
         }
         $user->delete();
+        activity()->log("Utilisateur a été supprimé avec succès");
         return $this->responseData('Utilisateur supprimé avec succès', true, Response::HTTP_ACCEPTED);
     }
 }
