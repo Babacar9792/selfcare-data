@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { Login } from '../interfaces/login';
 import { ResponseData } from '../interfaces/response-data';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,13 @@ import { Observable } from 'rxjs';
 export class AuthService extends ParentService {
 
   uriLogin: string = "login";
-  uriLogout : string =  "logout";
+  uriLogout: string = "logout";
 
   login<T>(credential: Login): Observable<ResponseData<T>> {
     return this.postData<Login, ResponseData<T>>(this.uriLogin, credential);
   }
 
-  logout<R>() : Observable<R> {
+  logout<R>(): Observable<R> {
     return this.getData<R>(this.uriLogout);
 
   }
@@ -31,6 +32,11 @@ export class AuthService extends ParentService {
       return localStorage.getItem(environment.appName + "_token")!
     }
     return "";
+  }
+
+  getUser() {
+    let user: User = JSON.parse(localStorage.getItem(environment.appName + 'user')!);
+    return user;
   }
 
 }

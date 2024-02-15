@@ -14,7 +14,9 @@
             <label class=" block text-black text-sm font-bold mb-3" for="username">
               Email
             </label>
-            <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="email or login_Window">
+            <input 
+                  class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                   id="username" type="text" placeholder="email or login_Windows" formControlName="username">
           </div>
 
           <!-- <div class="input-label">
@@ -25,7 +27,9 @@
             <label class=" block text-black text-sm font-bold mb-3" for="username">
               Password
             </label>
-            <input class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="password" placeholder="password">
+            <input
+             class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+             id="password" type="password" placeholder="password" formControlName="password">
           </div>
           <div class="container-button mt-10">
             <!-- <button type="submit" class="button outline" [disabled]="formAuthenticate.invalid"
@@ -34,7 +38,7 @@
               <div class="loader"></div>
             </button> -->
             <button  class="bg-[#FF7900] button hover:bg-orange-500 text-white font-bold py-2 px-4 rounded">
-              Button
+              Connexion
             </button>
           </div>
         </form>

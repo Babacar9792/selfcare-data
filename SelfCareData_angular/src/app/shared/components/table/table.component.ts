@@ -12,24 +12,18 @@ export class TableComponent {
     {
       id: 1,
       nom: "fadal",
-      prenom: "ndiaye",
+      firstname: "ndiaye",
       age: 33,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
 
 
     },
     {
       id: 2,
       nom: "nabou",
-      prenom: "diop",
+      firstname: "diop",
       age: 26,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
 
 
 
@@ -37,12 +31,9 @@ export class TableComponent {
     {
       id: 3,
       nom: "babacar",
-      prenom: "sy",
+      firstname: "sy",
       age: 23,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
 
 
     },
@@ -50,12 +41,9 @@ export class TableComponent {
     {
       id: 1,
       nom: "fadal",
-      prenom: "ndiaye",
+      firstname: "ndiaye",
       age: 33,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
     
 
 
@@ -63,48 +51,36 @@ export class TableComponent {
     {
       id: 2,
       nom: "nabou",
-      prenom: "diop",
+      firstname: "diop",
       age: 26,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
     
 
     },
     {
       id: 3,
       nom: "babacar",
-      prenom: "sy",
+      firstname: "sy",
       age: 23,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
     
 
     },
     {
       id: 4,
       nom: "Mbengue",
-      prenom: "Fatou",
+      firstname: "Fatou",
       age: 23,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
     
 
     },
     {
       id: 5,
       nom: "Aissatou",
-      prenom: "diop",
+      firstname: "diop",
       age: 23,
-      email: "cvbgj,nkm%Lkjhgfhjbkl",
-      numero: "kljhgfhjklmjhgfdhj",
-      adresse: "fghjklmjfdgjklmjfdg",
-      test1: 3,
+      
     
 
     }

@@ -5,6 +5,7 @@ import { CoreRoutingModule } from './core-routing.module';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { SidebarComponent } from './components/dashbord/sidebar/sidebar.component';
 import { TopbarComponent } from './components/dashbord/topbar/topbar.component';
+import { AuthModule } from '../auth/auth.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { TopbarComponent } from './components/dashbord/topbar/topbar.component';
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule
+    CoreRoutingModule,
+    AuthModule
   ],
   exports : [
     DashbordComponent

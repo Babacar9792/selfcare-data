@@ -1,14 +1,14 @@
 
 <div class="container-dashabord   ">
 
-    <div class="side-bar">
+    <div class="side-bar" *ngIf="isAuthenticate">
         <app-sidebar [isSidebarVisible]="isSidebarVisible"></app-sidebar>
     </div>
     <div class="menu " [ngClass]="{'hide': !isSidebarVisible}">
-        <div class="topbar" [ngClass]="{'hide': !isSidebarVisible}">
+        <div class="topbar" [ngClass]="{'hide': !isSidebarVisible}" *ngIf="isAuthenticate">
           <app-topbar (toggleSidebar)="toggleSidebar()" [isSidebarVisible]="isSidebarVisible"></app-topbar>
         </div>
-        <div class="menu-app w-[95wh] ">
+        <div class="menu-app w-[95vw] ">
             <router-outlet></router-outlet>
         </div>
     </div>

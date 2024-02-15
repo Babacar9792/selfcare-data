@@ -17,6 +17,8 @@ export class CaptErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
         let err = error.error;
+        // console.log(err);
+        
         if (!err.message) {
           err = {
             message: error.message,

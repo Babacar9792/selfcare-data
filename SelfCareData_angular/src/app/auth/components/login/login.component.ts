@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserLogin } from '../../interfaces/user-login';
 import { environment } from 'src/environments/environment.development';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent {
 
   formAuthenticate : FormGroup = new FormGroup({});
 
-  constructor(private fb : FormBuilder, private authService : AuthService){
+  constructor(private fb : FormBuilder, private authService : AuthService, private router : Router){
     this.formAuthenticate = this.fb.group({
       username : ["", [Validators.required]],
       password : ["", [Validators.required]]
@@ -34,6 +35,7 @@ export class LoginComponent {
         if(value.status){
           localStorage.setItem(environment.appName+"_token", value.data.token);
           localStorage.setItem(environment.appName+'_user', JSON.stringify(value.data.user));
+          this.router.navigateByUrl('egztgf');
           
         }
         else{

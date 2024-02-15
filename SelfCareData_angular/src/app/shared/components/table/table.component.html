@@ -20,8 +20,8 @@
               <thead>
                 <tr>
                   <ng-container *ngFor="let key of getHeadTableName(data),let i = index">
-                    <th class="the px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-sm font-semibold text-gray-600 uppercase tracking-wider">
-                      <div class="flex items-center justify-between">
+                    <th class="the px-5 py-2 border-b-2 border-gray-200 bg-gray-100 text-sm font-semibold text-gray-600 uppercase tracking-wider">
+                      <div class="flex items-center space-x-2">
                         <span>{{key}}</span>
                         <span>
                           <i *ngIf="!upOrDown" (click)="up(key,i)" class='bx bx-up-arrow-alt cursor-pointer'></i>
