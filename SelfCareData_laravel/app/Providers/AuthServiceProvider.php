@@ -23,7 +23,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Passport::routes();
-        echo "bonjour";
+    
         Passport::tokensExpireIn(now()->addMinute(1));
     }
 }

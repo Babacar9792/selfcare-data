@@ -39,7 +39,7 @@ class RoleController extends Controller
         //         $departements[0]->assignRole("Support fonctionnel");
         //     }
         // }
-
+        activity()->log("listé les roles");
         return $this->responseData("tous les roles", true, Response::HTTP_ACCEPTED, Role::all());
     }
 
@@ -54,6 +54,7 @@ class RoleController extends Controller
                     "name" => ucfirst(strtolower($request->name)),
                     "guard_name" => "api"
                 ]);
+                activity()->log('ajouté un nouveau role');
                 return $this->responseData("Role crée", true, Response::HTTP_ACCEPTED, $role);
             } catch (\Throwable $th) {
                 return $this->responseData($th->getMessage(), false, Response::HTTP_BAD_REQUEST);
@@ -68,6 +69,7 @@ class RoleController extends Controller
                 $user = User::where("id", $request->user_id)->first();
                 $role = Role::where("id", $request->role_id)->first();
                 $user->syncRoles([$role->name]);
+                activity()->log("changé le role d'un utilisateur");
                 return $this->responseData("nouveau role assigné ", true, Response::HTTP_ACCEPTED, $role);
             } catch (\Throwable $th) {
                 return $this->responseData($th->getMessage(), false, Response::HTTP_BAD_REQUEST);
@@ -77,14 +79,14 @@ class RoleController extends Controller
 
     public function interim(InterimRequest $request)
     {
-
         return DB::transaction(function () use ($request) {
             try {
                 $current = User::find($request->current);
                 $current->syncRoles(['Collaborateur']);
                 $new_user = User::find($request->new_user);
                 $new_user->syncRoles(['Support fonctionnel']);
-                return $this->responseData('Changement effectué', true, Response::HTTP_ACCEPTED,[
+                activity()->log("changé le role d'un utilisateur en tant que support fonctionnel");
+                return $this->responseData('Changement effectué', true, Response::HTTP_ACCEPTED, [
                     "current" => UserResource::make($current),
                     "new" => UserResource::make($new_user)
                 ]);

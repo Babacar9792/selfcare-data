@@ -12,6 +12,7 @@ use App\Http\Controllers\UtilisateurController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DepartementController;
+use App\Http\Controllers\TrackingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ use App\Http\Controllers\DepartementController;
 Route::post("login", [AuthController::class, "login"])->name("auth.login");
 
 //customAuth : middleware pour moddifier le forma de réponse de l'authentification avec auth
-Route::middleware("auth:api")->group(function() {
+ Route::middleware("auth:api")->group(function() {
     Route::apiResource("role",  RoleController::class);
     Route::get("logout", [AuthController::class, 'logout'])->name("au.logout");
     Route::post('user/{user}/debloquer', [AuthController::class, 'debloquerUser'])->name("user.deblocker");
@@ -40,7 +41,8 @@ Route::middleware("auth:api")->group(function() {
     Route::post('departement/{id}/interim', [RoleController::class, 'interim'])->name("departement.interim");
     Route::apiResource('user', UtilisateurController::class);
     Route::apiResource('departement',DepartementController::class);
-});
+    Route::get('tracking',[TrackingController::class,'getAllTrafics']);
+ });
 
 
 
